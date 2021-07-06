@@ -1,7 +1,8 @@
-import { StrictMode } from "react";
+import React from "react";
 import ReactDOM from "react-dom";
 
-import {App} from "./App";
+import { App } from "./App";
 
 // 何をどこにレンダリングするか
-ReactDOM.render(<App />, document.getElementById)
+ReactDOM.render(<App />, document.getElementById("root"));
+
