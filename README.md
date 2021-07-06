@@ -1,2 +1,2 @@
-# codesandbox_sec7
+# codesandbox-sec7
 Created with CodeSandbox

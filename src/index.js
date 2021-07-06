@@ -1,0 +1,7 @@
+import { StrictMode } from "react";
+import ReactDOM from "react-dom";
+
+import {App} from "./App";
+
+// 何をどこにレンダリングするか
+ReactDOM.render(<App />, document.getElementById)
