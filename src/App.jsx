@@ -1,17 +1,17 @@
 import React from "react";
 import "./styles.css";
 
-// 50, HTMLでいう構造を作成する
+// 51, CSSはＪＳをコピペ、ただしclassnameを設定する
 export const App = () => {
   return (
     <>
-      <div>
+      <div className="input-area">
         <input placeholder="TODOを入力" />
         <button>追加</button>
       </div>
-      <div>
-        <p>未完了のToDo</p>
-        <div>
+      <div className="incomplete-area">
+        <p className="title">未完了のToDo</p>
+        <div className="list-row">
           <ul>
             <li>sample</li>
           </ul>
@@ -19,14 +19,13 @@ export const App = () => {
           <button>削除</button>
         </div>
       </div>
-        <div>
-          <p>完了のToDo</p>
-          <div>
+        <div className="complete-area">
+          <p className="title">完了のToDo</p>
+          <div className="list-row">
             <ul>
-              <li>sample</li>
+              <li>sample2</li>
             </ul>
-            <button>完了</button>
-            <button>削除</button>
+            <button>戻す</button>
           </div>
         </div>
     </>
