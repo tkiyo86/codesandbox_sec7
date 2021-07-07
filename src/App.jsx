@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import "./styles.css";
 
-// 54 削除ボタンの機能実装
-// JS実装では削除したい行のdivを取得していた
-// ReactではincompleteTodos　からテキストを削除する？
+// 55 完了ボタンの実装
+//
+
 export const App = () => {
   // 53 ボタン機能実装
   const [todoText, setTodoText] = useState("");
@@ -30,6 +30,19 @@ export const App = () => {
     setIncompleteTodos(newTodos);
   };
 
+  //55 完了ボタン
+  const onClickComplete = (index) => {
+    alert(index + ":完了");
+    // 2段目から削除する
+    const newIncompleteTodos = [...incompleteTodos];
+    newIncompleteTodos.splice(index, 1);
+    // 3段目の現状リストに追加
+    const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
+
+    setIncompleteTodos(newIncompleteTodos);
+    setcompleteTodos(newCompleteTodos);
+  };
+
   // 52　 Reactに対応したmock
   const [incompleteTodos, setIncompleteTodos] = useState(["sample", "sample2"]);
   const [completeTodos, setcompleteTodos] = useState(["sample3"]);
@@ -50,7 +63,7 @@ export const App = () => {
             return (
               <div key={todo} className="list-row">
                 <li>{todo}</li>
-                <button>完了</button>
+                <button onClick={() => onClickComplete(index)}>完了</button>
                 <button onClick={() => onClickDelete(index)}>削除</button>
               </div>
             );
@@ -60,7 +73,7 @@ export const App = () => {
       <div className="complete-area">
         <p className="title">完了のToDo</p>
         <ul>
-          {completeTodos.map((todo) => {
+          {completeTodos.map((todo, index) => {
             return (
               <div key={todo} className="list-row">
                 <li>{todo}</li>
