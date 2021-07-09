@@ -32,14 +32,25 @@ export const App = () => {
 
   //55 完了ボタン
   const onClickComplete = (index) => {
-    alert(index + ":完了");
-    // 2段目から削除する
+    //alert(index + ":完了");
+    // 2段目からリストをコピーしてくる
     const newIncompleteTodos = [...incompleteTodos];
+    // 2段目から削除する
     newIncompleteTodos.splice(index, 1);
     // 3段目の現状リストに追加
     const newCompleteTodos = [...completeTodos, incompleteTodos[index]];
-
+    // 更新する
     setIncompleteTodos(newIncompleteTodos);
+    setcompleteTodos(newCompleteTodos);
+  };
+
+  //56 戻るボタン
+  const onClickBack = (index) => {
+    const newCompleteTodos = [...completeTodos];
+    newCompleteTodos.splice(index, 1);
+    const newInCompleteTodos = [...incompleteTodos, completeTodos[index]];
+
+    setIncompleteTodos(newInCompleteTodos);
     setcompleteTodos(newCompleteTodos);
   };
 
@@ -77,7 +88,7 @@ export const App = () => {
             return (
               <div key={todo} className="list-row">
                 <li>{todo}</li>
-                <button>戻す</button>
+                <button onClick={() => onClickBack(index)}>戻す</button>
               </div>
             );
           })}
