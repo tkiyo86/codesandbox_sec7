@@ -6,6 +6,7 @@ import { IncompleteTodos } from "./components/incompleteTodos";
 import { CompleteTodos } from "./components/completeTodos";
 
 // 57 機能実装はできたので、コンポーネント化していく
+// 可読性があがる、再利用しやすい点がコンポーネント化のメリット
 
 export const App = () => {
   // 53 ボタン機能実装
@@ -59,6 +60,7 @@ export const App = () => {
 
   // 52　 Reactに対応したmock
   // input-area -> 57でコンポーネント化,Propsで値を渡す
+  // incomplete-area, complete-areaも同じようにコンポ化
   const [incompleteTodos, setIncompleteTodos] = useState(["incomplete task"]);
   const [completeTodos, setcompleteTodos] = useState(["complete task"]);
   return (
